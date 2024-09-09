@@ -1,0 +1,542 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2024.09.06 19:59:41 =~=~=~=~=~=~=~=~=~=~=~=
+
+*Sep  6 12:55:26.521: %SYS-6-LOGOUT: User admin has exited tty session 1(99.0.0.1)
+SW-OLT#
+SW-OLT#
+SW-OLT#term le 0
+SW-OLT#show ver
+Cisco IOS XE Software, Version 17.06.04
+Cisco IOS Software [Bengaluru], Catalyst L3 Switch Software (CAT9K_IOSXE), Version 17.6.4, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2022 by Cisco Systems, Inc.
+Compiled Sun 14-Aug-22 08:58 by mcpre
+
+
+Cisco IOS-XE software, Copyright (c) 2005-2022 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+with ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify such
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+documentation or "License Notice" file accompanying the IOS-XE software,
+or the applicable URL provided on the flyer accompanying the IOS-XE
+software.
+
+
+ROM: IOS-XE ROMMON
+BOOTLDR: System Bootstrap, Version 16.12.2r, RELEASE SOFTWARE (P)
+
+SW-OLT uptime is 9 hours, 7 minutes
+Uptime for this control processor is 9 hours, 9 minutes
+System returned to ROM by PowerOn
+System image file is "flash:packages.conf"
+Last reload reason: PowerOn
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+
+Technology Package License Information: 
+
+------------------------------------------------------------------------------
+Technology-package                                     Technology-package
+Current                        Type                       Next reboot  
+------------------------------------------------------------------------------
+network-advantage   	Smart License                 	 network-advantage   
+dna-advantage       	Subscription Smart License    	 dna-advantage                 
+AIR License Level: AIR DNA Advantage
+Next reload AIR license Level: AIR DNA Advantage
+
+
+Smart Licensing Status: Registration Not Applicable/Not Applicable
+
+cisco C9500-16X (X86) processor with 1317097K/6147K bytes of memory.
+Processor board ID FOC2649Y1RY
+4 Virtual Ethernet interfaces
+24 Ten Gigabit Ethernet interfaces
+2 Forty Gigabit Ethernet interfaces
+2048K bytes of non-volatile configuration memory.
+16777216K bytes of physical memory.
+1638400K bytes of Crash Files at crashinfo:.
+11264000K bytes of Flash at flash:.
+
+Base Ethernet MAC Address          : a4:11:bb:fc:e7:00
+Motherboard Assembly Number        : 73-18709-01
+Motherboard Serial Number          : FOC264735AY
+Model Revision Number              : E0
+Motherboard Revision Number        : E0
+Model Number                       : C9500-16X
+System Serial Number               : FOC2649Y1RY
+CLEI Code Number                   : 
+
+
+Switch Ports Model              SW Version        SW Image              Mode   
+------ ----- -----              ----------        ----------            ----   
+*    1 26    C9500-16X          17.06.04          CAT9K_IOSXE           INSTALL
+
+
+SW-OLT#show inter status | e notconn
+
+Port         Name               Status       Vlan       Duplex  Speed Type
+Te1/0/1      TO SW NEXUS 93216  connected    trunk      a-full a-1000 10/100/1000BaseTX SFP
+SW-OLT#show inter trunk
+
+Port           Mode             Encapsulation  Status        Native vlan  
+Te1/0/1        on               802.1q         trunking      1
+
+Port           Vlans allowed on trunk
+Te1/0/1        99,202,500
+
+Port           Vlans allowed and active in management domain
+Te1/0/1        99,202,500
+
+Port           Vlans in spanning tree forwarding state and not pruned
+Te1/0/1        99,202,500
+SW-OLT#show vlan brie
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Te1/0/3, Te1/0/4, Te1/0/5
+                                                Te1/0/6, Te1/0/7, Te1/0/8
+                                                Te1/0/9, Te1/0/10, Te1/0/11
+                                                Te1/0/12, Te1/0/13, Te1/0/14
+                                                Te1/0/15, Te1/0/16
+99   MGMT                             active    
+202  VLAN0202                         active    
+203  VLAN0203                         active    
+500  VLAN0500                         active    Te1/0/2
+501  VLAN0501                         active    
+1002 fddi-default                     act/unsup 
+1003 token-ring-default               act/unsup 
+1004 fddinet-default                  act/unsup 
+1005 trnet-default                    act/unsup 
+SW-OLT#show ip inter brie | e unass
+Interface              IP-Address      OK? Method Status                Protocol
+Vlan99                 99.0.0.3        YES manual up                    up      
+Vlan202                202.1.1.1       YES manual up                    up      
+Vlan500                192.168.1.200   YES manual up                    up      
+
+SW-OLT#show spanning-tree
+
+VLAN0099
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32867
+             Address     1859.f548.2c67
+             Cost        20002
+             Port        1 (TenGigabitEthernet1/0/1)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32867  (priority 32768 sys-id-ext 99)
+             Address     a411.bbfc.e700
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Te1/0/1             Root FWD 20000     128.1    P2p 
+
+
+
+VLAN0202
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32970
+             Address     1859.f548.2c67
+             Cost        20002
+             Port        1 (TenGigabitEthernet1/0/1)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32970  (priority 32768 sys-id-ext 202)
+             Address     a411.bbfc.e700
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Te1/0/1             Root FWD 20000     128.1    P2p 
+
+
+
+VLAN0500
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32818
+             Address     1859.f548.2c67
+             Cost        20002
+             Port        1 (TenGigabitEthernet1/0/1)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    33268  (priority 32768 sys-id-ext 500)
+             Address     a411.bbfc.e700
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Te1/0/1             Root FWD 20000     128.1    P2p 
+
+
+SW-OLT#show cdp nei
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater, P - Phone, 
+                  D - Remote, C - CVTA, M - Two-port Mac Relay 
+
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+SW-AGG(FDO260215N5)
+                 Ten 1/0/1         156            R S I C N9K-C9321 Eth 1/1
+
+Total cdp entries displayed : 1
+SW-OLT#show run
+Building configuration...
+
+Current configuration : 9399 bytes
+!
+! Last configuration change at 11:58:06 UTC Fri Sep 6 2024
+!
+version 17.6
+service timestamps debug datetime msec
+service timestamps log datetime msec
+! Call-home is enabled by Smart-Licensing.
+service call-home
+platform punt-keepalive disable-kernel-core
+!
+hostname SW-OLT
+!
+!
+vrf definition Mgmt-vrf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+enable secret 9 $9$VpNWYv8jU/9d5U$.OPPyyRd94rDCausKwf5JsBDfHlKJPBcG6P1ib/y4y.
+!
+no aaa new-model
+switch 1 provision c9500-16x
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+login on-success log
+!
+!
+!
+!
+!
+!
+!
+!
+!
+crypto pki trustpoint SLA-TrustPoint
+ enrollment pkcs12
+ revocation-check crl
+!
+crypto pki trustpoint TP-self-signed-3237352084
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3237352084
+ revocation-check none
+ rsakeypair TP-self-signed-3237352084
+!
+!
+crypto pki certificate chain SLA-TrustPoint
+ certificate ca 01
+  30820321 30820209 A0030201 02020101 300D0609 2A864886 F70D0101 0B050030 
+  32310E30 0C060355 040A1305 43697363 6F312030 1E060355 04031317 43697363 
+  6F204C69 63656E73 696E6720 526F6F74 20434130 1E170D31 33303533 30313934 
+  3834375A 170D3338 30353330 31393438 34375A30 32310E30 0C060355 040A1305 
+  43697363 6F312030 1E060355 04031317 43697363 6F204C69 63656E73 696E6720 
+  526F6F74 20434130 82012230 0D06092A 864886F7 0D010101 05000382 010F0030 
+  82010A02 82010100 A6BCBD96 131E05F7 145EA72C 2CD686E6 17222EA1 F1EFF64D 
+  CBB4C798 212AA147 C655D8D7 9471380D 8711441E 1AAF071A 9CAE6388 8A38E520 
+  1C394D78 462EF239 C659F715 B98C0A59 5BBB5CBD 0CFEBEA3 700A8BF7 D8F256EE 
+  4AA4E80D DB6FD1C9 60B1FD18 FFC69C96 6FA68957 A2617DE7 104FDC5F EA2956AC 
+  7390A3EB 2B5436AD C847A2C5 DAB553EB 69A9A535 58E9F3E3 C0BD23CF 58BD7188 
+  68E69491 20F320E7 948E71D7 AE3BCC84 F10684C7 4BC8E00F 539BA42B 42C68BB7 
+  C7479096 B4CB2D62 EA2F505D C7B062A4 6811D95B E8250FC4 5D5D5FB8 8F27D191 
+  C55F0D76 61F9A4CD 3D992327 A8BB03BD 4E6D7069 7CBADF8B DF5F4368 95135E44 
+  DFC7C6CF 04DD7FD1 02030100 01A34230 40300E06 03551D0F 0101FF04 04030201 
+  06300F06 03551D13 0101FF04 05300301 01FF301D 0603551D 0E041604 1449DC85 
+  4B3D31E5 1B3E6A17 606AF333 3D3B4C73 E8300D06 092A8648 86F70D01 010B0500 
+  03820101 00507F24 D3932A66 86025D9F E838AE5C 6D4DF6B0 49631C78 240DA905 
+  604EDCDE FF4FED2B 77FC460E CD636FDB DD44681E 3A5673AB 9093D3B1 6C9E3D8B 
+  D98987BF E40CBD9E 1AECA0C2 2189BB5C 8FA85686 CD98B646 5575B146 8DFC66A8 
+  467A3DF4 4D565700 6ADF0F0D CF835015 3C04FF7C 21E878AC 11BA9CD2 55A9232C 
+  7CA7B7E6 C1AF74F6 152E99B7 B1FCF9BB E973DE7F 5BDDEB86 C71E3B49 1765308B 
+  5FB0DA06 B92AFE7F 494E8A9E 07B85737 F3A58BE1 1A48A229 C37C1E69 39F08678 
+  80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A B623CDBD 230E3AFB 
+  418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0 
+  D697DF7F 28
+  	quit
+crypto pki certificate chain TP-self-signed-3237352084
+ certificate self-signed 01
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33323337 33353230 3834301E 170D3234 30393036 30343133 
+  35395A17 0D333430 39303630 34313335 395A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 32333733 
+  35323038 34308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
+  0A028201 0100DCB9 ABFAEF25 CA5AEB7B CAB7486B 2615BE9C 0A136C81 14FA77DB 
+  55D4B5B2 1B9458FC 2549F807 651260AA E3EBF716 D066DFE7 5662DA2D A3ECBF5E 
+  1E8C8664 5BF05F28 FF718FCE 448E4FBF 177E3335 A20175A7 4F3B3D5E 1057E192 
+  191D8907 2F1DCFE1 72D37253 4C82FE3D 52185891 5514CD80 644D2785 70B6E765 
+  16ACE7A7 7F31AA71 128832DE 4B25F722 96094944 92FA87B1 BBE3F786 A17285F5 
+  53EFCDD9 00A856D0 D820BC2E 4E77CDBE 8413D595 514E4604 63312CD7 755EC873 
+  264B6B0F 4C5C84C8 1D75D28F FCACFFAD D59E396A 5D6B71C6 C4C9980F 25F29F13 
+  6DC9B58D D63F9184 6AF55ADD 5CC8AA7C 207033E4 0A4D274B 6C453AF9 C4F12ED8 
+  99DE26A1 05D50203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
+  301F0603 551D2304 18301680 14BF6F34 9688BFCF F2AAD92E 4448C535 0EB5988D 
+  DF301D06 03551D0E 04160414 BF6F3496 88BFCFF2 AAD92E44 48C5350E B5988DDF 
+  300D0609 2A864886 F70D0101 05050003 82010100 C305A7DD 64241269 3C101D46 
+  8860AFE4 ADE4D7B9 62A7C3B4 0EB3E570 D5774480 6634FF4F 9F83D45A 55902B0E 
+  90ED98E9 31681DFD 701E29DD 17247558 1B14B772 E9325B09 DCF0E612 3BA3A270 
+  B061F29A 34CF6D38 7231CE45 08FB3DB3 238C6993 940020E4 9B207131 D2C7AC09 
+  1570D667 13FAD744 0FFB1BC6 965CCB01 E9AA726E DF7B08CE F8F492A4 0EF3489F 
+  56A7FFCE 8ED886D1 B3039B02 FDF9D57F D549F52E A9618D7F DC10D506 3E097721 
+  F0CA74AD 81449A30 22B52C9D 865617A8 E8E4B998 85BA0D80 1AAD9539 D2B8D702 
+  BAF5ED7D 61340129 6B7313AF 99B4D221 5F7836CF 005831C4 173D747D B6637227 
+  DA15999D 4CC0B73A E060032B 6D29BD4D 80471D2C
+  	quit
+!
+!
+license boot level network-advantage addon dna-advantage
+!
+!
+diagnostic bootup level minimal
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+memory free low-watermark processor 131696
+!
+username admin privilege 15 password 0 admin
+!
+redundancy
+ mode sso
+!
+!
+!
+!
+!
+!
+transceiver type all
+ monitoring
+!
+!
+class-map match-any system-cpp-police-ewlc-control
+  description EWLC Control 
+class-map match-any system-cpp-police-topology-control
+  description Topology control
+class-map match-any system-cpp-police-sw-forward
+  description Sw forwarding, L2 LVX data packets, LOGGING, Transit Traffic
+class-map match-any system-cpp-default
+  description EWLC Data, Inter FED Traffic 
+class-map match-any system-cpp-police-sys-data
+  description Openflow, Exception, EGR Exception, NFL Sampled Data, RPF Failed
+class-map match-any system-cpp-police-punt-webauth
+  description Punt Webauth
+class-map match-any system-cpp-police-l2lvx-control
+  description L2 LVX control packets
+class-map match-any system-cpp-police-forus
+  description Forus Address resolution and Forus traffic
+class-map match-any system-cpp-police-multicast-end-station
+  description MCAST END STATION
+class-map match-any system-cpp-police-high-rate-app
+  description High Rate Applications 
+class-map match-any system-cpp-police-multicast
+  description MCAST Data
+class-map match-any system-cpp-police-l2-control
+  description L2 control
+class-map match-any system-cpp-police-dot1x-auth
+  description DOT1X Auth
+class-map match-any system-cpp-police-data
+  description ICMP redirect, ICMP_GEN and BROADCAST
+class-map match-any system-cpp-police-stackwise-virt-control
+  description Stackwise Virtual OOB
+class-map match-any non-client-nrt-class
+class-map match-any system-cpp-police-routing-control
+  description Routing control and Low Latency
+class-map match-any system-cpp-police-protocol-snooping
+  description Protocol snooping
+class-map match-any system-cpp-police-dhcp-snooping
+  description DHCP snooping
+class-map match-any system-cpp-police-ios-routing
+  description L2 control, Topology control, Routing control, Low Latency
+class-map match-any system-cpp-police-system-critical
+  description System Critical and Gold Pkt
+class-map match-any system-cpp-police-ios-feature
+  description ICMPGEN,BROADCAST,ICMP,L2LVXCntrl,ProtoSnoop,PuntWebauth,MCASTData,Transit,DOT1XAuth,Swfwd,LOGGING,L2LVXData,ForusTraffic,ForusARP,McastEndStn,Openflow,Exception,EGRExcption,NflSampled,RpfFailed
+!
+policy-map system-cpp-policy
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ vrf forwarding Mgmt-vrf
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface TenGigabitEthernet1/0/1
+ description TO SW NEXUS 93216 ETH0/1
+ switchport trunk allowed vlan 99,202,500
+ switchport mode trunk
+!
+interface TenGigabitEthernet1/0/2
+ switchport access vlan 500
+ switchport mode access
+!
+interface TenGigabitEthernet1/0/3
+!
+interface TenGigabitEthernet1/0/4
+!
+interface TenGigabitEthernet1/0/5
+!
+interface TenGigabitEthernet1/0/6
+!
+interface TenGigabitEthernet1/0/7
+!
+interface TenGigabitEthernet1/0/8
+!
+interface TenGigabitEthernet1/0/9
+!
+interface TenGigabitEthernet1/0/10
+!
+interface TenGigabitEthernet1/0/11
+!
+interface TenGigabitEthernet1/0/12
+!
+interface TenGigabitEthernet1/0/13
+!
+interface TenGigabitEthernet1/0/14
+!
+interface TenGigabitEthernet1/0/15
+!
+interface TenGigabitEthernet1/0/16
+!
+interface TenGigabitEthernet1/1/1
+!
+interface TenGigabitEthernet1/1/2
+!
+interface TenGigabitEthernet1/1/3
+!
+interface TenGigabitEthernet1/1/4
+!
+interface TenGigabitEthernet1/1/5
+!
+interface TenGigabitEthernet1/1/6
+!
+interface TenGigabitEthernet1/1/7
+!
+interface TenGigabitEthernet1/1/8
+!
+interface FortyGigabitEthernet1/1/1
+!
+interface FortyGigabitEthernet1/1/2
+!
+interface Vlan1
+ no ip address
+!
+interface Vlan99
+ ip address 99.0.0.3 255.255.255.0
+!
+interface Vlan202
+ ip address 202.1.1.1 255.255.255.0
+!
+interface Vlan500
+ ip address 192.168.1.200 255.255.255.0
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+!
+!
+!
+!
+!
+!
+control-plane
+ service-policy input system-cpp-policy
+!
+!
+line con 0
+ stopbits 1
+line vty 0 4
+ login local
+ transport input telnet ssh
+line vty 5 15
+ login
+ transport input ssh
+!
+call-home
+ ! If contact email address in call-home is configured as sch-smart-licensing@cisco.com
+ ! the email address configured in Cisco Smart License Portal will be used as contact email address to send SCH notifications.
+ contact-email-addr sch-smart-licensing@cisco.com
+ profile "CiscoTAC-1"
+  active
+  destination transport-method http
+!
+!
+!
+!
+!
+!
+end
+
+SW-OLT#
+SW-OLT#
+SW-OLT#tclsh
+SW-OLT(tcl)#foreach address {
++>  99.0.0.1
++>  99.0.0.2
++>  192.168.1.101
++>  202.1.1.2} { ping $address
++>}
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 99.0.0.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 99.0.0.2, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.1.101, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 202.1.1.2, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+SW-OLT(tcl)#exit
+SW-OLT#

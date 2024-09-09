@@ -1,0 +1,1178 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2024.09.06 20:07:30 =~=~=~=~=~=~=~=~=~=~=~=
+term le 0
+MSInsight-SW01# show ver
+ inter brie
+show vlan brie
+show spanning-tree active brief
+show inter trunk
+show consistency-checker selective-qinq
+show vlan internal info mapping
+show system internal eltm error count
+show vlan counters
+show cdp nei
+show run
+
+tclsh
+foreach address {
+99.0.0.1
+99.0.0.2
+192.168.1.200
+202.1.1.1
+} {exec "ping $address" }
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2024, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 5.4.0
+ NXOS: version 9.3(13)
+  BIOS compile time:  10/23/2019
+  NXOS image file is: bootflash:///nxos.9.3.13.bin
+  NXOS compile time:  1/31/2024 12:00:00 [12/13/2023 06:06:50]
+
+
+Hardware
+  cisco Nexus3500 C3548P-10G Chassis 
+  Intel(R) Pentium(R) CPU  @ 1.50GHz with 4023484 kB of memory.
+  Processor Board ID FOC16370D45
+
+  Device name: MSInsight-SW01
+  bootflash:    1877208 kB
+  usb1:               0 kB (expansion flash)
+
+Kernel uptime is 0 day(s), 2 hour(s), 39 minute(s), 16 second(s)
+
+Last reset 
+  Reason: Reload due to unknown reason, possible power loss
+  System version: 9.3(13)
+  Service: 
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s):
+	
+MSInsight-SW01# show inter status | i connect
+mgmt0         --                 connected routed    full    1000    --         
+Eth1/10       --                 connected 1         full    10G     SFP-H10GB-ACU7M
+Eth1/11       --                 connected 1         full    10G     SFP-H10GB-CU3M
+Eth1/12       --                 connected 1         full    1000    1000base-T 
+Eth1/33       to SW METRO        connected trunk     full    1000    1000base-T 
+Vlan1         --                 connected routed    auto    auto    --
+Vlan99        --                 connected routed    auto    auto    --
+Vlan500       --                 connected routed    auto    auto    --
+MSInsight-SW01# show ip inter brie
+
+IP Interface Status for VRF "default"(1)
+Interface            IP Address      Interface Status
+Vlan1                1.3.3.3         protocol-up/link-up/admin-up       
+Vlan99               99.0.0.4        protocol-up/link-up/admin-up       
+Vlan500              192.168.1.101   protocol-up/link-up/admin-up       
+MSInsight-SW01# show vlan brie
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Po1, Eth1/1, Eth1/2, Eth1/3
+                                                Eth1/4, Eth1/5, Eth1/6, Eth1/7
+                                                Eth1/8, Eth1/9, Eth1/10, Eth1/11
+                                                Eth1/12, Eth1/13, Eth1/14
+                                                Eth1/15, Eth1/16, Eth1/17
+                                                Eth1/18, Eth1/19, Eth1/20
+                                                Eth1/21, Eth1/22, Eth1/23
+                                                Eth1/24, Eth1/25, Eth1/26
+                                                Eth1/27, Eth1/28, Eth1/29
+                                                Eth1/30, Eth1/31, Eth1/32
+                                                Eth1/34, Eth1/35, Eth1/36
+                                                Eth1/38, Eth1/39, Eth1/40
+                                                Eth1/41, Eth1/42, Eth1/43
+                                                Eth1/44, Eth1/45, Eth1/46
+                                                Eth1/47, Eth1/48
+10   VLAN0010                         active    Po1, Eth1/1, Eth1/5, Eth1/6
+                                                Eth1/7, Eth1/8
+99   VLAN0099                         active    Po1, Eth1/1, Eth1/5, Eth1/6
+                                                Eth1/7, Eth1/8, Eth1/33
+500  VLAN0500                         active    Po1, Eth1/1, Eth1/5, Eth1/6
+                                                Eth1/7, Eth1/8, Eth1/33, Eth1/37
+
+MSInsight-SW01# show spanning-tree active brief
+
+VLAN0001
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32769
+             Address     a44c.116a.257c
+             This bridge is the root
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     a44c.116a.257c
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Eth1/10          Desg FWD 2         128.10   P2p 
+Eth1/11          Desg FWD 2         128.11   P2p 
+Eth1/12          Desg FWD 4         128.12   P2p 
+
+
+VLAN0099
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32867
+             Address     1859.f548.2c67
+             Cost        4
+             Port        33 (Ethernet1/33)
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32867  (priority 32768 sys-id-ext 99)
+             Address     a44c.116a.257c
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Eth1/33          Root FWD 4         128.33   P2p 
+
+
+VLAN0500
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32818
+             Address     1859.f548.2c67
+             Cost        4
+             Port        33 (Ethernet1/33)
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    33268  (priority 32768 sys-id-ext 500)
+             Address     a44c.116a.257c
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Eth1/33          Root FWD 4         128.33   P2p 
+
+MSInsight-SW01# show inter trunk
+
+--------------------------------------------------------------------------------
+Port          Native  Status        Port
+              Vlan                  Channel
+--------------------------------------------------------------------------------
+Eth1/1        1       trunking      --
+Eth1/5        1       trnk-bndl     Po1
+Eth1/6        1       trnk-bndl     Po1
+Eth1/7        1       trnk-bndl     Po1
+Eth1/8        1       trnk-bndl     Po1
+Eth1/33       1       trunking      --
+Po1           1       trunking      --
+
+--------------------------------------------------------------------------------
+Port          Vlans Allowed on Trunk
+--------------------------------------------------------------------------------
+Eth1/1        1-4094
+Eth1/5        1-4094
+Eth1/6        1-4094
+Eth1/7        1-4094
+Eth1/8        1-4094
+Eth1/33       99,500
+Po1           1-4094
+
+--------------------------------------------------------------------------------
+Port          Vlans Err-disabled on Trunk
+--------------------------------------------------------------------------------
+Eth1/1        none
+Eth1/5        none
+Eth1/6        none
+Eth1/7        none
+Eth1/8        none
+Eth1/33       none
+Po1           none
+
+--------------------------------------------------------------------------------
+Port          STP Forwarding
+--------------------------------------------------------------------------------
+Eth1/1        none
+Eth1/5        none
+Eth1/6        none
+Eth1/7        none
+Eth1/8        none
+Eth1/33       99,500
+Po1           none
+
+--------------------------------------------------------------------------------
+Port          Vlans in spanning tree forwarding state and not pruned
+--------------------------------------------------------------------------------
+Eth1/1        Feature VTP is not enabled
+none
+Eth1/5        Feature VTP is not enabled
+none
+Eth1/6        Feature VTP is not enabled
+none
+Eth1/7        Feature VTP is not enabled
+none
+Eth1/8        Feature VTP is not enabled
+none
+Eth1/33       Feature VTP is not enabled
+99,500
+Po1           Feature VTP is not enabled
+none
+MSInsight-SW01# show consistency-checker selective-qinq
+                                          ^
+% Invalid command at '^' marker.
+MSInsight-SW01# show vlan internal info mapping
+
+Per Port Vlan Translation Details
+
+================
+
+Entry No 		:  0
+----------------------
+  ifindex Eth1/30(0x1a01d000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  1
+----------------------
+  ifindex Eth1/5(0x1a004000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  2
+----------------------
+  ifindex Eth1/29(0x1a01c000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  3
+----------------------
+  ifindex Eth1/4(0x1a003000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  4
+----------------------
+  ifindex Eth1/28(0x1a01b000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  5
+----------------------
+  ifindex Eth1/3(0x1a002000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  6
+----------------------
+  ifindex Eth1/27(0x1a01a000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  7
+----------------------
+  ifindex Eth1/2(0x1a001000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  8
+----------------------
+  ifindex Eth1/26(0x1a019000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  9
+----------------------
+  ifindex Eth1/1(0x1a000000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  10
+----------------------
+  ifindex Eth1/25(0x1a018000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  11
+----------------------
+  ifindex Eth1/24(0x1a017000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  12
+----------------------
+  ifindex Eth1/48(0x1a02f000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  13
+----------------------
+  ifindex Eth1/23(0x1a016000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  14
+----------------------
+  ifindex Eth1/47(0x1a02e000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  15
+----------------------
+  ifindex Eth1/22(0x1a015000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  16
+----------------------
+  ifindex Eth1/46(0x1a02d000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  17
+----------------------
+  ifindex Eth1/21(0x1a014000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  18
+----------------------
+  ifindex Eth1/45(0x1a02c000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  19
+----------------------
+  ifindex Eth1/20(0x1a013000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  20
+----------------------
+  ifindex Eth1/44(0x1a02b000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  21
+----------------------
+  ifindex Eth1/19(0x1a012000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  22
+----------------------
+  ifindex Eth1/43(0x1a02a000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  23
+----------------------
+  ifindex Eth1/18(0x1a011000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  24
+----------------------
+  ifindex Eth1/42(0x1a029000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  25
+----------------------
+  ifindex Eth1/17(0x1a010000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  26
+----------------------
+  ifindex Po1(0x16000000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  27
+----------------------
+  ifindex Eth1/41(0x1a028000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  28
+----------------------
+  ifindex Eth1/16(0x1a00f000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  29
+----------------------
+  ifindex Eth1/40(0x1a027000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  30
+----------------------
+  ifindex Eth1/15(0x1a00e000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  31
+----------------------
+  ifindex Eth1/39(0x1a026000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  32
+----------------------
+  ifindex Eth1/14(0x1a00d000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  33
+----------------------
+  ifindex Eth1/38(0x1a025000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  34
+----------------------
+  ifindex Eth1/13(0x1a00c000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  35
+----------------------
+  ifindex Eth1/37(0x1a024000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  36
+----------------------
+  ifindex Eth1/12(0x1a00b000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  37
+----------------------
+  ifindex Eth1/36(0x1a023000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  38
+----------------------
+  ifindex Eth1/11(0x1a00a000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  39
+----------------------
+  ifindex Eth1/35(0x1a022000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  40
+----------------------
+  ifindex Eth1/10(0x1a009000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  41
+----------------------
+  ifindex Eth1/34(0x1a021000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  42
+----------------------
+  ifindex Eth1/9(0x1a008000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  43
+----------------------
+  ifindex Eth1/33(0x1a020000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  44
+----------------------
+  ifindex Eth1/8(0x1a007000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  45
+----------------------
+  ifindex Eth1/32(0x1a01f000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  46
+----------------------
+  ifindex Eth1/7(0x1a006000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  47
+----------------------
+  ifindex Eth1/31(0x1a01e000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No 		:  48
+----------------------
+  ifindex Eth1/6(0x1a005000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+
+MSInsight-SW01# show system internal eltm error count
+interface config error: 0 
+ dce error: 0 
+ port struct error: 0 
+ port channel error: 0 
+ tunnel error: 0 
+ tlv count error: 0 
+ vpn count error: 0 
+ SI add to DB error: 0 
+ MSInsight-SW01# show vlan counters
+Vlan Id                             :1 
+Unicast Octets In                  :0 
+Unicast Packets In                 :0 
+Multicast Octets In                :0 
+Multicast Packets In               :0 
+Broadcast Octets In                :0 
+Broadcast Packets In               :0 
+Unicast Octets Out                 :0 
+Unicast Packets Out                :0 
+L3 Unicast Octets In                :0 
+L3 Unicast Packets In               :0 
+Total Octets In                     :32912 
+Total Packets In                    :144 
+Total Octets Out                    :512 
+Total Packets Out                   :8 
+Vlan Id                             :10 
+Unicast Octets In                  :0 
+Unicast Packets In                 :0 
+Multicast Octets In                :0 
+Multicast Packets In               :0 
+Broadcast Octets In                :0 
+Broadcast Packets In               :0 
+Unicast Octets Out                 :0 
+Unicast Packets Out                :0 
+L3 Unicast Octets In                :0 
+L3 Unicast Packets In               :0 
+Total Octets In                     :24264 
+Total Packets In                    :337 
+Total Octets Out                    :24264 
+Total Packets Out                   :337 
+Vlan Id                             :99 
+Unicast Octets In                  :0 
+Unicast Packets In                 :0 
+Multicast Octets In                :0 
+Multicast Packets In               :0 
+Broadcast Octets In                :0 
+Broadcast Packets In               :0 
+Unicast Octets Out                 :0 
+Unicast Packets Out                :0 
+L3 Unicast Octets In                :0 
+L3 Unicast Packets In               :0 
+Total Octets In                     :200474 
+Total Packets In                    :2707 
+Total Octets Out                    :9144 
+Total Packets Out                   :83 
+Vlan Id                             :500 
+Unicast Octets In                  :0 
+Unicast Packets In                 :0 
+Multicast Octets In                :0 
+Multicast Packets In               :0 
+Broadcast Octets In                :0 
+Broadcast Packets In               :0 
+Unicast Octets Out                 :0 
+Unicast Packets Out                :0 
+L3 Unicast Octets In                :0 
+L3 Unicast Packets In               :0 
+Total Octets In                     :1066670 
+Total Packets In                    :10515 
+Total Octets Out                    :426988 
+Total Packets Out                   :3796 
+Vlan Id                             :4045 
+Unicast Octets In                  :0 
+Unicast Packets In                 :0 
+Multicast Octets In                :0 
+Multicast Packets In               :0 
+Broadcast Octets In                :0 
+Broadcast Packets In               :0 
+Unicast Octets Out                 :0 
+Unicast Packets Out                :0 
+L3 Unicast Octets In                :0 
+L3 Unicast Packets In               :0 
+Total Octets In                     :0 
+Total Packets In                    :0 
+Total Octets Out                    :0 
+Total Packets Out                   :0 
+MSInsight-SW01# show cdp nei
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+SW-MSI-SUPARK-R3    mgmt0          152    S I       ME-3600X-24TS-M  Gig0/9        
+SW-METRO(FDO26141GH9)
+                    Eth1/33        173    R S I s   N9K-C93108TC-FX  Eth1/2        
+
+Total entries displayed: 2
+MSInsight-SW01# show run
+
+!Command: show running-config
+!Running configuration last done at: Sat Jan  1 02:17:50 2011
+!Time: Sat Jan  1 02:42:59 2011
+
+version 9.3(13) Bios:version 5.4.0 
+hostname MSInsight-SW01
+vdc MSInsight-SW01 id 1
+  limit-resource vlan minimum 16 maximum 4094
+  limit-resource vrf minimum 2 maximum 4096
+  limit-resource port-channel minimum 0 maximum 48
+  limit-resource u4route-mem minimum 128 maximum 128
+  limit-resource u6route-mem minimum 96 maximum 96
+  limit-resource m4route-mem minimum 58 maximum 58
+  limit-resource m6route-mem minimum 8 maximum 8
+
+feature telnet
+feature nxapi
+cfs eth distribute
+feature interface-vlan
+feature lacp
+feature lldp
+
+no password strength-check
+username admin password 5 $5$GgbfiePC$0zxqWnJ5fvd6sHf2YbOvm0MHjZhVblFwnx8WeAXL478  role network-admin
+ip domain-lookup
+crypto key generate rsa label MSInsight-SW01 modulus 1024
+service unsupported-transceiver
+ip access-list copp-system-acl-bfd
+  10 permit udp any any eq 3784 
+  20 permit udp any any eq 3785 
+ip access-list copp-system-acl-eigrp
+  10 permit eigrp any any 
+ip access-list copp-system-acl-ftp
+  10 permit tcp any any eq ftp-data 
+  20 permit tcp any any eq ftp 
+  30 permit tcp any eq ftp-data any 
+  40 permit tcp any eq ftp any 
+ip access-list copp-system-acl-http
+  10 permit tcp any any eq www 
+  20 permit tcp any any eq 443 
+ip access-list copp-system-acl-icmp
+  10 permit icmp any any 
+ip access-list copp-system-acl-ntp
+  10 permit udp any any eq ntp 
+  20 permit udp any eq ntp any 
+ip access-list copp-system-acl-pimreg
+  10 permit pim any any 
+ip access-list copp-system-acl-ping
+  10 permit icmp any any echo 
+  20 permit icmp any any echo-reply 
+ip access-list copp-system-acl-routingproto1
+  10 permit tcp any any eq bgp 
+  20 permit tcp any eq bgp any 
+  30 permit tcp any any eq 639 
+  40 permit tcp any eq 639 any 
+  50 permit ospf any any 
+ip access-list copp-system-acl-routingproto2
+  10 permit 112 any 224.0.0.0/24 
+ip access-list copp-system-acl-snmp
+  10 permit udp any any eq snmp 
+  30 permit udp any any eq snmptrap 
+ip access-list copp-system-acl-ssh
+  10 permit tcp any any eq 22 
+  20 permit tcp any eq 22 any 
+ip access-list copp-system-acl-stftp
+  10 permit udp any any eq tftp 
+  20 permit udp any any eq 1758 
+  30 permit udp any eq tftp any 
+  40 permit udp any eq 1758 any 
+  50 permit tcp any any eq 115 
+  60 permit tcp any eq 115 any 
+ip access-list copp-system-acl-tacacsradius
+  10 permit tcp any any eq tacacs 
+  20 permit tcp any eq tacacs any 
+  30 permit udp any any eq 1812 
+  40 permit udp any any eq 1813 
+  50 permit udp any any eq 1645 
+  60 permit udp any any eq 1646 
+  70 permit udp any eq 1812 any 
+  80 permit udp any eq 1813 any 
+  90 permit udp any eq 1645 any 
+  100 permit udp any eq 1646 any 
+ip access-list copp-system-acl-telnet
+  10 permit tcp any any eq telnet 
+  20 permit tcp any any eq 107 
+  30 permit tcp any eq telnet any 
+  40 permit tcp any eq 107 any 
+ip access-list copp-system-dhcp-relay
+  10 permit udp any eq bootps any eq bootps 
+policy-map type network-qos jumbo
+  class type network-qos class-default
+    mtu 9216
+system qos
+  service-policy type network-qos jumbo
+class-map type control-plane match-any copp-ftp
+  match access-group name copp-system-acl-ftp
+class-map type control-plane match-any copp-http
+  match access-group name copp-system-acl-http
+class-map type control-plane match-any copp-icmp
+  match access-group name copp-system-acl-icmp
+class-map type control-plane match-any copp-ntp
+  match access-group name copp-system-acl-ntp
+class-map type control-plane match-any copp-s-arp
+class-map type control-plane match-any copp-s-bfd
+  match access-group name copp-system-acl-bfd
+class-map type control-plane match-any copp-s-bpdu
+class-map type control-plane match-any copp-s-cdp
+class-map type control-plane match-any copp-s-dai
+class-map type control-plane match-any copp-s-default
+class-map type control-plane match-any copp-s-dhcpreq
+class-map type control-plane match-any copp-s-dhcpresp
+  match access-group name copp-system-dhcp-relay
+class-map type control-plane match-any copp-s-dpss
+class-map type control-plane match-any copp-s-eigrp
+  match access-group name copp-system-acl-eigrp
+class-map type control-plane match-any copp-s-glean
+class-map type control-plane match-any copp-s-igmp
+class-map type control-plane match-any copp-s-ip-nat
+class-map type control-plane match-any copp-s-ip-options
+class-map type control-plane match-any copp-s-ipmc-g-hit
+class-map type control-plane match-any copp-s-ipmc-rpf-fail-g
+class-map type control-plane match-any copp-s-ipmc-rpf-fail-sg
+class-map type control-plane match-any copp-s-ipmcmiss
+class-map type control-plane match-any copp-s-l2switched
+class-map type control-plane match-any copp-s-l3destmiss
+class-map type control-plane match-any copp-s-l3mtufail
+class-map type control-plane match-any copp-s-l3slowpath
+class-map type control-plane match-any copp-s-lacp
+class-map type control-plane match-any copp-s-lldp
+class-map type control-plane match-any copp-s-pim-datareg
+class-map type control-plane match-any copp-s-pimautorp
+class-map type control-plane match-any copp-s-pimreg
+  match access-group name copp-system-acl-pimreg
+class-map type control-plane match-any copp-s-ping
+  match access-group name copp-system-acl-ping
+class-map type control-plane match-any copp-s-ptp
+class-map type control-plane match-any copp-s-routingProto1
+  match access-group name copp-system-acl-routingproto1
+class-map type control-plane match-any copp-s-routingProto2
+  match access-group name copp-system-acl-routingproto2
+class-map type control-plane match-any copp-s-ttl1
+class-map type control-plane match-any copp-snmp
+  match access-group name copp-system-acl-snmp
+class-map type control-plane match-any copp-ssh
+  match access-group name copp-system-acl-ssh
+class-map type control-plane match-any copp-stftp
+  match access-group name copp-system-acl-stftp
+class-map type control-plane match-any copp-tacacsradius
+  match access-group name copp-system-acl-tacacsradius
+class-map type control-plane match-any copp-telnet
+  match access-group name copp-system-acl-telnet
+policy-map type control-plane copp-system-policy 
+  class copp-s-default
+    police pps 400 
+  class copp-s-ping
+    police pps 1000 
+  class copp-s-l3destmiss
+    police pps 100 
+  class copp-s-glean
+    police pps 500 
+  class copp-s-l3mtufail
+    police pps 100 
+  class copp-s-ttl1
+    police pps 100 
+  class copp-s-dhcpreq
+    police pps 300 
+  class copp-s-dhcpresp
+    police pps 300 
+  class copp-s-ip-options
+    police pps 100 
+  class copp-s-ip-nat
+    police pps 100 
+  class copp-s-ipmcmiss
+    police pps 400 
+  class copp-s-ipmc-g-hit
+    police pps 400 
+  class copp-s-ipmc-rpf-fail-g
+    police pps 400 
+  class copp-s-ipmc-rpf-fail-sg
+    police pps 400 
+  class copp-s-igmp
+    police pps 400 
+  class copp-s-routingProto2
+    police pps 1300 
+  class copp-s-eigrp
+    police pps 200 
+  class copp-s-pimreg
+    police pps 200 
+  class copp-s-pimautorp
+    police pps 200 
+  class copp-s-routingProto1
+    police pps 1000 
+  class copp-s-arp
+    police pps 200 
+  class copp-s-ptp
+    police pps 1000 
+  class copp-s-bfd
+    police pps 350 
+  class copp-s-bpdu
+    police pps 12000 
+  class copp-s-dpss
+    police pps 6400 
+  class copp-s-cdp
+    police pps 400 
+  class copp-s-lacp
+    police pps 400 
+  class copp-s-lldp
+    police pps 500 
+  class copp-icmp
+    police pps 200 
+  class copp-telnet
+    police pps 500 
+  class copp-ssh
+    police pps 500 
+  class copp-snmp
+    police pps 500 
+  class copp-ntp
+    police pps 100 
+  class copp-tacacsradius
+    police pps 400 
+  class copp-stftp
+    police pps 400 
+  class copp-ftp
+    police pps 100 
+  class copp-http
+    police pps 100 
+  class copp-s-pim-datareg
+    police pps 600 
+control-plane
+  service-policy input copp-system-policy 
+snmp-server user admin network-admin auth md5 5203200D5FFFEE0CC553AF48621D3404E83B priv 37560B6C73DD866FFA6EB54E5BC3BCDF325A localizedV2key
+snmp-server host 192.168.101.183 traps version 2c public udp-port 2162
+rmon event 1 log trap public description FATAL(1) owner PMON@FATAL
+rmon event 2 log trap public description CRITICAL(2) owner PMON@CRITICAL
+rmon event 3 log trap public description ERROR(3) owner PMON@ERROR
+rmon event 4 log trap public description WARNING(4) owner PMON@WARNING
+rmon event 5 log trap public description INFORMATION(5) owner PMON@INFO
+
+ip route 0.0.0.0/0 10.150.3.254 vrf management
+vlan 1,10,99,500
+
+vrf context management
+  ip route 0.0.0.0/0 10.68.125.254
+  ip route 0.0.0.0/0 10.150.3.254
+no port-channel load-balance resilient
+
+hardware profile forwarding-mode warp
+
+nxapi http port 80
+
+
+interface Vlan1
+  no shutdown
+  no ip redirects
+  ip address 1.3.3.3/8
+  no ipv6 redirects
+
+interface Vlan99
+  no shutdown
+  ip address 99.0.0.4/24
+
+interface Vlan500
+  no shutdown
+  ip address 192.168.1.101/24
+
+interface port-channel1
+  switchport mode trunk
+
+interface Ethernet1/1
+  switchport mode trunk
+  speed 40000
+
+interface Ethernet1/2
+  shutdown
+
+interface Ethernet1/3
+  shutdown
+
+interface Ethernet1/4
+  shutdown
+
+interface Ethernet1/5
+  switchport mode trunk
+  channel-group 1
+
+interface Ethernet1/6
+  switchport mode trunk
+  channel-group 1
+
+interface Ethernet1/7
+  switchport mode trunk
+  channel-group 1
+
+interface Ethernet1/8
+  switchport mode trunk
+  channel-group 1
+
+interface Ethernet1/9
+
+interface Ethernet1/10
+
+interface Ethernet1/11
+
+interface Ethernet1/12
+
+interface Ethernet1/13
+
+interface Ethernet1/14
+
+interface Ethernet1/15
+
+interface Ethernet1/16
+
+interface Ethernet1/17
+
+interface Ethernet1/18
+
+interface Ethernet1/19
+
+interface Ethernet1/20
+
+interface Ethernet1/21
+
+interface Ethernet1/22
+
+interface Ethernet1/23
+
+interface Ethernet1/24
+
+interface Ethernet1/25
+
+interface Ethernet1/26
+
+interface Ethernet1/27
+
+interface Ethernet1/28
+
+interface Ethernet1/29
+
+interface Ethernet1/30
+
+interface Ethernet1/31
+
+interface Ethernet1/32
+  speed 1000
+  duplex full
+
+interface Ethernet1/33
+  description to SW-METRO
+  switchport mode trunk
+  switchport trunk allowed vlan 99,500
+  spanning-tree port type edge trunk
+
+interface Ethernet1/34
+
+interface Ethernet1/35
+
+interface Ethernet1/36
+
+interface Ethernet1/37
+  switchport access vlan 500
+
+interface Ethernet1/38
+
+interface Ethernet1/39
+
+interface Ethernet1/40
+
+interface Ethernet1/41
+
+interface Ethernet1/42
+
+interface Ethernet1/43
+
+interface Ethernet1/44
+
+interface Ethernet1/45
+
+interface Ethernet1/46
+
+interface Ethernet1/47
+
+interface Ethernet1/48
+
+interface mgmt0
+  vrf member management
+  ip address 10.150.3.225/24
+line console
+line vty
+  exec-timeout 3
+boot nxos bootflash:/nxos.9.3.13.bin 
+
+
+
+MSInsight-SW01# 
+MSInsight-SW01# tclsh
+MSInsight-SW01-tcl# foreach address {
+> 99.0.0.1
+> 99.0.0.2
+> 192.168.1.200
+> 202.1.1.1
+> } {exec "ping $address" }
+PING 99.0.0.1 (99.0.0.1): 56 data bytes
+64 bytes from 99.0.0.1: icmp_seq=0 ttl=254 time=1.581 ms
+64 bytes from 99.0.0.1: icmp_seq=1 ttl=254 time=1.207 ms
+64 bytes from 99.0.0.1: icmp_seq=2 ttl=254 time=1.284 ms
+64 bytes from 99.0.0.1: icmp_seq=3 ttl=254 time=1.023 ms
+64 bytes from 99.0.0.1: icmp_seq=4 ttl=254 time=1.285 ms
+
+--- 99.0.0.1 ping statistics ---
+5 packets transmitted, 5 packets received, 0.00% packet loss
+round-trip min/avg/max = 1.023/1.275/1.581 ms
+
+PING 99.0.0.2 (99.0.0.2): 56 data bytes
+64 bytes from 99.0.0.2: icmp_seq=0 ttl=254 time=1.755 ms
+64 bytes from 99.0.0.2: icmp_seq=1 ttl=254 time=1.199 ms
+64 bytes from 99.0.0.2: icmp_seq=2 ttl=254 time=1.272 ms
+64 bytes from 99.0.0.2: icmp_seq=3 ttl=254 time=1.319 ms
+64 bytes from 99.0.0.2: icmp_seq=4 ttl=254 time=1.279 ms
+
+--- 99.0.0.2 ping statistics ---
+5 packets transmitted, 5 packets received, 0.00% packet loss
+round-trip min/avg/max = 1.199/1.364/1.755 ms
+
+PING 192.168.1.200 (192.168.1.200): 56 data bytes
+64 bytes from 192.168.1.200: icmp_seq=0 ttl=253 time=1.367 ms
+64 bytes from 192.168.1.200: icmp_seq=1 ttl=253 time=1.196 ms
+64 bytes from 192.168.1.200: icmp_seq=2 ttl=253 time=1.285 ms
+64 bytes from 192.168.1.200: icmp_seq=3 ttl=253 time=1.022 ms
+64 bytes from 192.168.1.200: icmp_seq=4 ttl=253 time=1.023 ms
+
+--- 192.168.1.200 ping statistics ---
+5 packets transmitted, 5 packets received, 0.00% packet loss
+round-trip min/avg/max = 1.022/1.178/1.367 ms
+
+PING 202.1.1.1 (202.1.1.1): 56 data bytes
+Request 0 timed out
+Request 1 timed out
+Request 2 timed out
+Request 3 timed out
+Request 4 timed out
+
+--- 202.1.1.1 ping statistics ---
+5 packets transmitted, 0 packets received, 100.00% packet loss
+
+MSInsight-SW01-tcl# 
+MSInsight-SW01-tcl# exit
+MSInsight-SW01# 

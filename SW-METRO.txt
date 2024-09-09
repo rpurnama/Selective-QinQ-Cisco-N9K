@@ -1,0 +1,588 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2024.09.06 20:03:27 =~=~=~=~=~=~=~=~=~=~=~=
+term le 0
+SW-METRO# show ver
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2021, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 05.47
+ NXOS: version 9.3(8)
+  BIOS compile time:  04/28/2022
+  NXOS image file is: usb1:/nxos.9.3.8.bin
+  NXOS compile time:  8/4/2021 13:00:00 
+
+
+Hardware
+  cisco Nexus9000 C93108TC-FX Chassis 
+  Intel(R) Xeon(R) CPU D-1526 @ 1.80GHz with 24570080 kB of memory.
+  Processor Board ID FDO26141GH9
+
+  Device name: SW-METRO
+  bootflash:  115805708 kB
+Kernel uptime is 0 day(s), 5 hour(s), 23 minute(s), 53 second(s)
+
+Last reset at 360545 usecs after Fri Sep  6 07:41:55 2024
+  Reason: Module PowerCycled
+  System version: 
+  Service: HW check by card-client
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s):
+        
+SW-METRO# show inter status | i connect
+Eth1/1        TO SAG 1/1         connected trunk     full    10G     10g        
+Eth1/2        --                 connected trunk     full    1000    10g        
+Vlan99        --                 connected routed    auto    auto    --
+Vlan202       --                 connected routed    auto    auto    --
+SW-METRO# show ip inter brie
+
+IP Interface Status for VRF "default"(1)
+Interface            IP Address      Interface Status
+Vlan99               99.0.0.1        protocol-up/link-up/admin-up       
+Vlan202              202.1.1.2       protocol-up/link-up/admin-up       
+Vlan500              192.168.1.100   protocol-down/link-down/admin-down 
+SW-METRO# show vlan brie
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Eth1/1
+50   SVLAN-500                        active    Eth1/1, Eth1/2
+99   MGMT                             active    Eth1/1, Eth1/2
+200  VLAN0200                         active    Eth1/1
+201  VLAN0201                         active    Eth1/1
+202  VLAN0202                         active    Eth1/1
+203  VLAN0203                         active    Eth1/1
+500  CVLAN-500                        active    Eth1/1
+
+SW-METRO# show spanning-tree active brief
+
+VLAN0001
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32769
+             Address     1859.f548.2c67
+             This bridge is the root
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     1859.f548.2c67
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Eth1/1           Desg FWD 2         128.1    P2p 
+
+
+VLAN0050
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32818
+             Address     1859.f548.2c67
+             This bridge is the root
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32818  (priority 32768 sys-id-ext 50)
+             Address     1859.f548.2c67
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Eth1/1           Desg FWD 2         128.1    P2p 
+Eth1/2           Desg FWD 4         128.5    P2p 
+
+
+VLAN0099
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32867
+             Address     1859.f548.2c67
+             This bridge is the root
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32867  (priority 32768 sys-id-ext 99)
+             Address     1859.f548.2c67
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Eth1/1           Desg FWD 2         128.1    P2p 
+Eth1/2           Desg FWD 4         128.5    P2p 
+
+
+VLAN0200
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32968
+             Address     1859.f548.2c67
+             This bridge is the root
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32968  (priority 32768 sys-id-ext 200)
+             Address     1859.f548.2c67
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Eth1/1           Desg FWD 2         128.1    P2p 
+
+
+VLAN0201
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32969
+             Address     1859.f548.2c67
+             This bridge is the root
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32969  (priority 32768 sys-id-ext 201)
+             Address     1859.f548.2c67
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Eth1/1           Desg FWD 2         128.1    P2p 
+
+
+VLAN0202
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32970
+             Address     1859.f548.2c67
+             This bridge is the root
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32970  (priority 32768 sys-id-ext 202)
+             Address     1859.f548.2c67
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Eth1/1           Desg FWD 2         128.1    P2p 
+
+
+VLAN0203
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32971
+             Address     1859.f548.2c67
+             This bridge is the root
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32971  (priority 32768 sys-id-ext 203)
+             Address     1859.f548.2c67
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Eth1/1           Desg FWD 2         128.1    P2p 
+
+
+VLAN0500
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    33268
+             Address     1859.f548.2c67
+             This bridge is the root
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    33268  (priority 32768 sys-id-ext 500)
+             Address     1859.f548.2c67
+             Hello Time  2  sec  Max Age 20 sec  Forward Delay 15 sec
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Eth1/1           Desg FWD 2         128.1    P2p 
+
+SW-METRO# show inter trunk
+
+--------------------------------------------------------------------------------
+Port          Native  Status        Port
+              Vlan                  Channel
+--------------------------------------------------------------------------------
+Eth1/1        1       trunking      --
+Eth1/2        1       trunking      --
+
+--------------------------------------------------------------------------------
+Port          Vlans Allowed on Trunk
+--------------------------------------------------------------------------------
+Eth1/1        1-4094
+Eth1/2        50,99
+
+--------------------------------------------------------------------------------
+Port          Vlans Err-disabled on Trunk
+--------------------------------------------------------------------------------
+Eth1/1        none
+Eth1/2        none
+
+--------------------------------------------------------------------------------
+Port          STP Forwarding
+--------------------------------------------------------------------------------
+Eth1/1        1,50,99,200-203,500
+Eth1/2        50,99
+
+--------------------------------------------------------------------------------
+Port          Vlans in spanning tree forwarding state and not pruned
+--------------------------------------------------------------------------------
+Eth1/1        Feature VTP is not enabled
+1,50,99,200-203,500
+Eth1/2        Feature VTP is not enabled
+50,99
+SW-METRO# show consistency-checker selective-qinq
+Box level hardware programming checks       : PASS
+Fetching ingressVlanXlate entries from slice: 0 HW
+Fetching ingressVlanXlate TCAM entries
+Performing port specific checks for intf Eth1/2
+Port specific selective QinQ checks for interface   Eth1/2 : PASS
+Selective QinQ Overall status       : PASS
+SW-METRO# show vlan internal info mapping
+
+Per Port Vlan Translation Details
+
+================
+
+Entry No                :  0
+----------------------
+  ifindex Eth1/1(0x1a000000)
+  vlan mapping enabled: FALSE
+  vlan translation mapping information (count=0):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+
+Entry No                :  1
+----------------------
+  ifindex Eth1/2(0x1a000200)
+  vlan mapping enabled: TRUE
+  vlan translation mapping information (count=1):
+    Original Vlan       Translated Vlan
+    -------------       ---------------
+    500                   50
+
+
+SW-METRO# show system internal eltm error count
+interface config error: 0 
+ dce error: 0 
+ port struct error: 0 
+ port channel error: 0 
+ tunnel error: 0 
+ tlv count error: 0 
+ vpn count error: 0 
+ SI add to DB error: 0 
+ SW-METRO# show vlan counters
+Vlan Id                             :1 
+Unicast Octets In                  :0 
+Unicast Packets In                 :0 
+Multicast Octets In                :79727 
+Multicast Packets In               :352 
+Broadcast Octets In                :0 
+Broadcast Packets In               :0 
+Unicast Octets Out                 :0 
+Unicast Packets Out                :0 
+L3 Unicast Octets In                :0 
+L3 Unicast Packets In               :0 
+
+Vlan Id                             :50 
+Unicast Octets In                  :933092 
+Unicast Packets In                 :8294 
+Multicast Octets In                :109230 
+Multicast Packets In               :1412 
+Broadcast Octets In                :70663 
+Broadcast Packets In               :464 
+Unicast Octets Out                 :933092 
+Unicast Packets Out                :8294 
+L3 Unicast Octets In                :0 
+L3 Unicast Packets In               :0 
+
+Vlan Id                             :99 
+Unicast Octets In                  :9226 
+Unicast Packets In                 :80 
+Multicast Octets In                :920742 
+Multicast Packets In               :8384 
+Broadcast Octets In                :5466 
+Broadcast Packets In               :79 
+Unicast Octets Out                 :9226 
+Unicast Packets Out                :80 
+L3 Unicast Octets In                :0 
+L3 Unicast Packets In               :0 
+
+Vlan Id                             :200 
+Unicast Octets In                  :0 
+Unicast Packets In                 :0 
+Multicast Octets In                :0 
+Multicast Packets In               :0 
+Broadcast Octets In                :0 
+Broadcast Packets In               :0 
+Unicast Octets Out                 :0 
+Unicast Packets Out                :0 
+L3 Unicast Octets In                :0 
+L3 Unicast Packets In               :0 
+
+Vlan Id                             :201 
+Unicast Octets In                  :0 
+Unicast Packets In                 :0 
+Multicast Octets In                :0 
+Multicast Packets In               :0 
+Broadcast Octets In                :0 
+Broadcast Packets In               :0 
+Unicast Octets Out                 :0 
+Unicast Packets Out                :0 
+L3 Unicast Octets In                :0 
+L3 Unicast Packets In               :0 
+
+Vlan Id                             :202 
+Unicast Octets In                  :0 
+Unicast Packets In                 :0 
+Multicast Octets In                :125110 
+Multicast Packets In               :1703 
+Broadcast Octets In                :68 
+Broadcast Packets In               :1 
+Unicast Octets Out                 :0 
+Unicast Packets Out                :0 
+L3 Unicast Octets In                :0 
+L3 Unicast Packets In               :0 
+
+Vlan Id                             :203 
+Unicast Octets In                  :0 
+Unicast Packets In                 :0 
+Multicast Octets In                :118296 
+Multicast Packets In               :1643 
+Broadcast Octets In                :0 
+Broadcast Packets In               :0 
+Unicast Octets Out                 :0 
+Unicast Packets Out                :0 
+L3 Unicast Octets In                :0 
+L3 Unicast Packets In               :0 
+
+Vlan Id                             :500 
+Unicast Octets In                  :0 
+Unicast Packets In                 :0 
+Multicast Octets In                :36432 
+Multicast Packets In               :506 
+Broadcast Octets In                :0 
+Broadcast Packets In               :0 
+Unicast Octets Out                 :0 
+Unicast Packets Out                :0 
+L3 Unicast Octets In                :0 
+L3 Unicast Packets In               :0 
+
+Vlan Id                             :4045 
+Unicast Octets In                  :0 
+Unicast Packets In                 :0 
+Multicast Octets In                :0 
+Multicast Packets In               :0 
+Broadcast Octets In                :0 
+Broadcast Packets In               :0 
+Unicast Octets Out                 :0 
+Unicast Packets Out                :0 
+L3 Unicast Octets In                :0 
+L3 Unicast Packets In               :0 
+
+SW-METRO# show cdp nei
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+SW-AGG(FDO260215N5)
+                    Eth1/1         151    R S I s   N9K-C93216TC- Eth1/2        
+MSInsight-SW01(FOC1638R0JY)
+                    Eth1/2         124    R S I s   N3K-C3548P-10 Eth1/33       
+
+Total entries displayed: 2
+SW-METRO# show run
+
+!Command: show running-config
+!Running configuration last done at: Fri Sep  6 11:51:57 2024
+!Time: Fri Sep  6 13:04:19 2024
+
+version 9.3(8) Bios:version 05.47 
+hostname SW-METRO
+vdc SW-METRO id 1
+  limit-resource vlan minimum 16 maximum 4094
+  limit-resource vrf minimum 2 maximum 4096
+  limit-resource port-channel minimum 0 maximum 511
+  limit-resource u4route-mem minimum 248 maximum 248
+  limit-resource u6route-mem minimum 96 maximum 96
+  limit-resource m4route-mem minimum 58 maximum 58
+  limit-resource m6route-mem minimum 8 maximum 8
+
+feature interface-vlan
+
+no password strength-check
+username admin password 5 $5$MOHAEN$mjF1ra7jZbvbi4aaJGP1/pqSlcUf.80vlNTfbT424Q1  role network-admin
+ip domain-lookup
+copp profile strict
+snmp-server user admin network-admin auth md5 055F50ECA69582BBDCB200C70D139B0FA3DD priv 52232ED0BAE8A6C0DBB92FBB050ED661C9A8 localizedV2key
+rmon event 1 log trap public description FATAL(1) owner PMON@FATAL
+rmon event 2 log trap public description CRITICAL(2) owner PMON@CRITICAL
+rmon event 3 log trap public description ERROR(3) owner PMON@ERROR
+rmon event 4 log trap public description WARNING(4) owner PMON@WARNING
+rmon event 5 log trap public description INFORMATION(5) owner PMON@INFO
+
+vlan 1,50,99,200-203,500
+vlan 50
+  name SVLAN-500
+vlan 99
+  name MGMT
+vlan 500
+  name CVLAN-500
+
+vrf context management
+
+interface Vlan1
+
+interface Vlan99
+  no shutdown
+  ip address 99.0.0.1/24
+
+interface Vlan202
+  no shutdown
+  ip address 202.1.1.2/24
+
+interface Vlan500
+  ip address 192.168.1.100/24
+
+interface Ethernet1/1
+  description TO SAG 1/1
+  switchport
+  switchport mode trunk
+  no shutdown
+
+interface Ethernet1/2
+  switchport
+  switchport mode trunk
+  switchport vlan mapping 500 dot1q-tunnel 50 
+  switchport trunk allowed vlan 50,99
+  spanning-tree port type edge trunk
+  no shutdown
+
+interface Ethernet1/3
+
+interface Ethernet1/4
+
+interface Ethernet1/5
+
+interface Ethernet1/6
+
+interface Ethernet1/7
+
+interface Ethernet1/8
+
+interface Ethernet1/9
+
+interface Ethernet1/10
+
+interface Ethernet1/11
+
+interface Ethernet1/12
+
+interface Ethernet1/13
+
+interface Ethernet1/14
+
+interface Ethernet1/15
+
+interface Ethernet1/16
+
+interface Ethernet1/17
+
+interface Ethernet1/18
+
+interface Ethernet1/19
+
+interface Ethernet1/20
+
+interface Ethernet1/21
+
+interface Ethernet1/22
+
+interface Ethernet1/23
+
+interface Ethernet1/24
+
+interface Ethernet1/25
+
+interface Ethernet1/26
+
+interface Ethernet1/27
+
+interface Ethernet1/28
+
+interface Ethernet1/29
+
+interface Ethernet1/30
+
+interface Ethernet1/31
+
+interface Ethernet1/32
+
+interface Ethernet1/33
+
+interface Ethernet1/34
+
+interface Ethernet1/35
+
+interface Ethernet1/36
+
+interface Ethernet1/37
+
+interface Ethernet1/38
+
+interface Ethernet1/39
+
+interface Ethernet1/40
+
+interface Ethernet1/41
+
+interface Ethernet1/42
+
+interface Ethernet1/43
+
+interface Ethernet1/44
+
+interface Ethernet1/45
+
+interface Ethernet1/46
+
+interface Ethernet1/47
+
+interface Ethernet1/48
+
+interface Ethernet1/49
+
+interface Ethernet1/50
+
+interface Ethernet1/51
+
+interface Ethernet1/52
+
+interface Ethernet1/53
+
+interface Ethernet1/54
+
+interface mgmt0
+  vrf member management
+icam monitor scale
+
+line console
+line vty
+boot nxos bootflash:/nxos.9.3.8.bin 
+
+
+
+SW-METRO# 
+SW-METRO# 
+SW-METRO# 
+SW-METRO# 
+SW-METRO# 
