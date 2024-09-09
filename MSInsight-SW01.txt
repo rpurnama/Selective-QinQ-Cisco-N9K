@@ -1,6 +1,9 @@
 =~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2024.09.06 20:07:30 =~=~=~=~=~=~=~=~=~=~=~=
-term le 0
-MSInsight-SW01# show ver
+term le 0
+
+
+MSInsight-SW01# show ver
+
  inter brie
 show vlan brie
 show spanning-tree active brief
@@ -68,7 +71,9 @@ plugin
 
 Active Package(s):
 	
-MSInsight-SW01# show inter status | i connect
+
+MSInsight-SW01# show inter status | i connect
+
 mgmt0         --                 connected routed    full    1000    --         
 Eth1/10       --                 connected 1         full    10G     SFP-H10GB-ACU7M
 Eth1/11       --                 connected 1         full    10G     SFP-H10GB-CU3M
@@ -77,14 +82,18 @@ Eth1/33       to SW METRO        connected trunk     full    1000    1000base-T
 Vlan1         --                 connected routed    auto    auto    --
 Vlan99        --                 connected routed    auto    auto    --
 Vlan500       --                 connected routed    auto    auto    --
-MSInsight-SW01# show ip inter brie
+
+MSInsight-SW01# show ip inter brie
+
 
 IP Interface Status for VRF "default"(1)
 Interface            IP Address      Interface Status
 Vlan1                1.3.3.3         protocol-up/link-up/admin-up       
 Vlan99               99.0.0.4        protocol-up/link-up/admin-up       
 Vlan500              192.168.1.101   protocol-up/link-up/admin-up       
-MSInsight-SW01# show vlan brie
+
+MSInsight-SW01# show vlan brie
+
 
 VLAN Name                             Status    Ports
 ---- -------------------------------- --------- -------------------------------
@@ -110,7 +119,9 @@ VLAN Name                             Status    Ports
 500  VLAN0500                         active    Po1, Eth1/1, Eth1/5, Eth1/6
                                                 Eth1/7, Eth1/8, Eth1/33, Eth1/37
 
-MSInsight-SW01# show spanning-tree active brief
+
+MSInsight-SW01# show spanning-tree active brief
+
 
 VLAN0001
   Spanning tree enabled protocol rstp
@@ -163,7 +174,9 @@ Interface        Role Sts Cost      Prio.Nbr Type
 ---------------- ---- --- --------- -------- --------------------------------
 Eth1/33          Root FWD 4         128.33   P2p 
 
-MSInsight-SW01# show inter trunk
+
+MSInsight-SW01# show inter trunk
+
 
 --------------------------------------------------------------------------------
 Port          Native  Status        Port
@@ -227,10 +240,14 @@ Eth1/33       Feature VTP is not enabled
 99,500
 Po1           Feature VTP is not enabled
 none
-MSInsight-SW01# show consistency-checker selective-qinq
+
+MSInsight-SW01# show consistency-checker selective-qinq
+
                                           ^
 % Invalid command at '^' marker.
-MSInsight-SW01# show vlan internal info mapping
+
+MSInsight-SW01# show vlan internal info mapping
+
 
 Per Port Vlan Translation Details
 
@@ -629,7 +646,9 @@ Entry No 		:  48
     -------------       ---------------
 
 
-MSInsight-SW01# show system internal eltm error count
+
+MSInsight-SW01# show system internal eltm error count
+
 interface config error: 0 
  dce error: 0 
  port struct error: 0 
@@ -638,7 +657,9 @@ interface config error: 0
  tlv count error: 0 
  vpn count error: 0 
  SI add to DB error: 0 
- MSInsight-SW01# show vlan counters
+ 
+MSInsight-SW01# show vlan counters
+
 Vlan Id                             :1 
 Unicast Octets In                  :0 
 Unicast Packets In                 :0 
@@ -714,7 +735,9 @@ Total Octets In                     :0
 Total Packets In                    :0 
 Total Octets Out                    :0 
 Total Packets Out                   :0 
-MSInsight-SW01# show cdp nei
+
+MSInsight-SW01# show cdp nei
+
 Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
                   S - Switch, H - Host, I - IGMP, r - Repeater,
                   V - VoIP-Phone, D - Remotely-Managed-Device,
@@ -726,7 +749,9 @@ SW-METRO(FDO26141GH9)
                     Eth1/33        173    R S I s   N9K-C93108TC-FX  Eth1/2        
 
 Total entries displayed: 2
-MSInsight-SW01# show run
+
+MSInsight-SW01# show run
+
 
 !Command: show running-config
 !Running configuration last done at: Sat Jan  1 02:17:50 2011
@@ -751,7 +776,6 @@ feature lacp
 feature lldp
 
 no password strength-check
-username admin password 5 $5$GgbfiePC$0zxqWnJ5fvd6sHf2YbOvm0MHjZhVblFwnx8WeAXL478  role network-admin
 ip domain-lookup
 crypto key generate rsa label MSInsight-SW01 modulus 1024
 service unsupported-transceiver
@@ -1122,57 +1146,121 @@ boot nxos bootflash:/nxos.9.3.13.bin
 
 
 
-MSInsight-SW01# 
-MSInsight-SW01# tclsh
-MSInsight-SW01-tcl# foreach address {
-> 99.0.0.1
-> 99.0.0.2
-> 192.168.1.200
-> 202.1.1.1
-> } {exec "ping $address" }
-PING 99.0.0.1 (99.0.0.1): 56 data bytes
-64 bytes from 99.0.0.1: icmp_seq=0 ttl=254 time=1.581 ms
-64 bytes from 99.0.0.1: icmp_seq=1 ttl=254 time=1.207 ms
-64 bytes from 99.0.0.1: icmp_seq=2 ttl=254 time=1.284 ms
-64 bytes from 99.0.0.1: icmp_seq=3 ttl=254 time=1.023 ms
-64 bytes from 99.0.0.1: icmp_seq=4 ttl=254 time=1.285 ms
-
---- 99.0.0.1 ping statistics ---
-5 packets transmitted, 5 packets received, 0.00% packet loss
-round-trip min/avg/max = 1.023/1.275/1.581 ms
-
-PING 99.0.0.2 (99.0.0.2): 56 data bytes
-64 bytes from 99.0.0.2: icmp_seq=0 ttl=254 time=1.755 ms
-64 bytes from 99.0.0.2: icmp_seq=1 ttl=254 time=1.199 ms
-64 bytes from 99.0.0.2: icmp_seq=2 ttl=254 time=1.272 ms
-64 bytes from 99.0.0.2: icmp_seq=3 ttl=254 time=1.319 ms
-64 bytes from 99.0.0.2: icmp_seq=4 ttl=254 time=1.279 ms
-
---- 99.0.0.2 ping statistics ---
-5 packets transmitted, 5 packets received, 0.00% packet loss
-round-trip min/avg/max = 1.199/1.364/1.755 ms
-
-PING 192.168.1.200 (192.168.1.200): 56 data bytes
-64 bytes from 192.168.1.200: icmp_seq=0 ttl=253 time=1.367 ms
-64 bytes from 192.168.1.200: icmp_seq=1 ttl=253 time=1.196 ms
-64 bytes from 192.168.1.200: icmp_seq=2 ttl=253 time=1.285 ms
-64 bytes from 192.168.1.200: icmp_seq=3 ttl=253 time=1.022 ms
-64 bytes from 192.168.1.200: icmp_seq=4 ttl=253 time=1.023 ms
-
---- 192.168.1.200 ping statistics ---
-5 packets transmitted, 5 packets received, 0.00% packet loss
-round-trip min/avg/max = 1.022/1.178/1.367 ms
-
-PING 202.1.1.1 (202.1.1.1): 56 data bytes
-Request 0 timed out
-Request 1 timed out
-Request 2 timed out
-Request 3 timed out
-Request 4 timed out
-
---- 202.1.1.1 ping statistics ---
-5 packets transmitted, 0 packets received, 100.00% packet loss
-
-MSInsight-SW01-tcl# 
-MSInsight-SW01-tcl# exit
-MSInsight-SW01# 
+
+MSInsight-SW01# 
+
+
+MSInsight-SW01# tclsh
+
+
+MSInsight-SW01-tcl# foreach address {
+
+
+> 99.0.0.1
+
+
+> 99.0.0.2
+
+
+> 192.168.1.200
+
+
+> 202.1.1.1
+
+
+> } {exec "ping $address" }
+
+PING 99.0.0.1 (99.0.0.1): 56 data bytes
+
+64 bytes from 99.0.0.1: icmp_seq=0 ttl=254 time=1.581 ms
+
+64 bytes from 99.0.0.1: icmp_seq=1 ttl=254 time=1.207 ms
+
+64 bytes from 99.0.0.1: icmp_seq=2 ttl=254 time=1.284 ms
+
+64 bytes from 99.0.0.1: icmp_seq=3 ttl=254 time=1.023 ms
+
+64 bytes from 99.0.0.1: icmp_seq=4 ttl=254 time=1.285 ms
+
+
+
+--- 99.0.0.1 ping statistics ---
+
+5 packets transmitted, 5 packets received, 0.00% packet loss
+
+round-trip min/avg/max = 1.023/1.275/1.581 ms
+
+
+
+PING 99.0.0.2 (99.0.0.2): 56 data bytes
+
+64 bytes from 99.0.0.2: icmp_seq=0 ttl=254 time=1.755 ms
+
+64 bytes from 99.0.0.2: icmp_seq=1 ttl=254 time=1.199 ms
+
+64 bytes from 99.0.0.2: icmp_seq=2 ttl=254 time=1.272 ms
+
+64 bytes from 99.0.0.2: icmp_seq=3 ttl=254 time=1.319 ms
+
+64 bytes from 99.0.0.2: icmp_seq=4 ttl=254 time=1.279 ms
+
+
+
+--- 99.0.0.2 ping statistics ---
+
+5 packets transmitted, 5 packets received, 0.00% packet loss
+
+round-trip min/avg/max = 1.199/1.364/1.755 ms
+
+
+
+PING 192.168.1.200 (192.168.1.200): 56 data bytes
+
+64 bytes from 192.168.1.200: icmp_seq=0 ttl=253 time=1.367 ms
+
+64 bytes from 192.168.1.200: icmp_seq=1 ttl=253 time=1.196 ms
+
+64 bytes from 192.168.1.200: icmp_seq=2 ttl=253 time=1.285 ms
+
+64 bytes from 192.168.1.200: icmp_seq=3 ttl=253 time=1.022 ms
+
+64 bytes from 192.168.1.200: icmp_seq=4 ttl=253 time=1.023 ms
+
+
+
+--- 192.168.1.200 ping statistics ---
+
+5 packets transmitted, 5 packets received, 0.00% packet loss
+
+round-trip min/avg/max = 1.022/1.178/1.367 ms
+
+
+
+PING 202.1.1.1 (202.1.1.1): 56 data bytes
+
+Request 0 timed out
+
+Request 1 timed out
+
+Request 2 timed out
+
+Request 3 timed out
+
+Request 4 timed out
+
+
+
+--- 202.1.1.1 ping statistics ---
+
+5 packets transmitted, 0 packets received, 100.00% packet loss
+
+
+
+
+MSInsight-SW01-tcl# 
+
+
+MSInsight-SW01-tcl# exit
+
+
+MSInsight-SW01# 
